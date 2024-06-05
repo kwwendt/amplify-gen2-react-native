@@ -1,50 +1,27 @@
-# Welcome to your Expo app 👋
+## Sample React Native + Amplify Gen 2 app
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Note**: not to be used in production environments, this repo is purely for demo purposes ONLY!
+**Double note**: I don't think the ios or android paths work. I couldn't install Xcode on my laptop but web does work!
 
-## Get started
+### Pre-requisite steps
 
-1. Install dependencies
+1. You should have access to deploy resources to an AWS account.
+2. Node installed and required dependencies for React Native development.
 
-   ```bash
-   npm install
-   ```
+### Set up
 
-2. Start the app
+1. Clone this repository
+2. `npm install` package dependencies
+3. Deploy the Amplify sandbox: `npm ampx sandbox` --> this is what will deploy your Amazon Cognito resources along with the authenticated role which allows signed-in users to invoke Bedrock.
+4. Once the sandbox deployment is completed, you should see a note in the terminal that says **Watching for file changes...** and that the `amplify_outputs.json` file has been created.
+5. In a new terminal window, run the expo application: `npm run web`
 
-   ```bash
-    npx expo start
-   ```
+## Testing the app
 
-In the output, you'll find options to open the app in a
+I'm not a React Native developer so the app isn't pretty but...
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+1. Click **Create account** and enter your email, password. You will receive a confirmation code to the email you entered.
+2. Enter the confirmation code in. You will be signed in to the app.
+3. Click on the **Invoke model** button. There is a pre-baked prompt already in the code which runs.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+I am using the current logged in users session credentials to make the AWS SDK call to Bedrock. This approach can be adopted to other AWS service SDK calls as well.
