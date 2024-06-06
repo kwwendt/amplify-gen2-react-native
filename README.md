@@ -7,12 +7,16 @@
 
 1. You should have access to deploy resources to an AWS account.
 2. Node installed and required dependencies for React Native development.
+3. An AWS Account that has been bootstrapped for the AWS CDK:
+```cdk bootstrap```
+If you don't have the CDK installed, you can install it by running:
+```npm install -g aws-cdk```
 
 ### Set up
 
 1. Clone this repository
 2. `npm install` package dependencies
-3. Deploy the Amplify sandbox: `npm ampx sandbox` --> this is what will deploy your Amazon Cognito resources along with the authenticated role which allows signed-in users to invoke Bedrock.
+3. Deploy the Amplify sandbox: `npx ampx sandbox` --> this is what will deploy your Amazon Cognito resources along with the authenticated role which allows signed-in users to invoke Bedrock.
 4. Once the sandbox deployment is completed, you should see a note in the terminal that says **Watching for file changes...** and that the `amplify_outputs.json` file has been created.
 5. In a new terminal window, run the expo application: `npm run web`
 
